@@ -11,7 +11,7 @@ class Solver_8_queens:
         self.mut_prob = mut_prob
         
   
-    def solve(self, min_fitness=0.9, max_epochs=100):
+    def solve(self, min_fitness=1, max_epochs=100):
         epoch_count = 0
         population = self.generate_population()
         fit_func_in = self.fit_func(population)
@@ -30,6 +30,7 @@ class Solver_8_queens:
         sum_fit = sum(fit_func_in)
         out_fit = 1 - min_fit/sum_fit
         out = ""
+        
         for i in range(len(fit_func_in)):
             if fit_func_in[i] == min_fit:
                 for index in range(0, len(population[i])):
