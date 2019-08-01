@@ -27,6 +27,8 @@ class Solver_8_queens:
             fit_func_in = self.fit_func(population)
             epoch_count += 1
         min_fit = min(fit_func_in)
+        sum_fit = sum(fit_func_in)
+        out_fit = 1 - min_fit/sum_fit
         out = ""
         for i in range(len(fit_func_in)):
             if fit_func_in[i] == min_fit:
@@ -39,7 +41,7 @@ class Solver_8_queens:
                     out += "\n"
                 break
 
-        return (min(fit_func_in), epoch_count, out)
+        return (out_fit, epoch_count, out)
 
     def generate_population(self):
         population = [[0] * 8 for i in range(self.pop_size)]
